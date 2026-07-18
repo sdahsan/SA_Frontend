@@ -14,8 +14,8 @@ RUN npm install
 COPY . .
 
 # Step 6: Inform Docker that your app listens on port 5010
-EXPOSE 5173
+EXPOSE 3000
 
 # Step 7: The execution command that boots up your Node server
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 
