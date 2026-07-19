@@ -58,11 +58,20 @@ pipeline {
         }
 
         // STAGE 3: Build frontend production container image
+        // STAGE 3: BUILD FRONTEND IMAGE PASSING DYNAMIC ARGUMENTS
         stage('Build Image') {
             steps {
                 echo "Compiling frontend container version: ${BUILD_NUMBER}"
-                sh "sg docker -c 'docker build -t ${DOCKER_HUB_USER}/${IMAGE_NAME}:${BUILD_NUMBER} .'"
-                sh "sg docker -c 'docker build -t ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest .'"
+                sh """
+                    sg docker -c 'docker build \
+                        --build-arg VITE_API_URL=${env.API_URL} \
+                        -t ${DOCKER_HUB_USER}/${IMAGE_NAME}:${BUILD_NUMBER} .'
+                """
+                sh """
+                    sg docker -c 'docker build \
+                        --build-arg VITE_API_URL=${env.API_URL} \
+                        -t ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest .'
+                """
             }
         }
 
