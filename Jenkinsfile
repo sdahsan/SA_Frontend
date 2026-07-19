@@ -20,7 +20,7 @@ pipeline {
         
         // 2. Frontend Application Deployment Variables
         PORT            = '3000'
-        API_URL         = 'http://20.46.51.31:5010//api/user' 
+        API_URL         = 'http://20.46.51.31:5010/api/user' 
     }
 
     stages {
