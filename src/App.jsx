@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const API_BASE_URL = 'http://localhost:5010/api/user';
+// This tells the app to check for Jenkins environment variables first, falling back to localhost only during local offline development
+const API_BASE_URL = process.env.REACT_APP_API_URL || process.env.VITE_API_URL || 'http://localhost:5010/api/user';
 
 function App() {
   const [users, setUsers] = useState([]);
