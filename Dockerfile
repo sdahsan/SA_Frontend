@@ -25,4 +25,4 @@ EXPOSE 3000
 
 # Step 8: The execution command that serves your built application
 # (Change to "npm run preview" or your framework's custom production hosting command if needed)
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "3000"]
