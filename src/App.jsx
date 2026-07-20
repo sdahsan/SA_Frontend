@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Small App System Management Panel</h1>
+      <h1>Small System Management Panel</h1>
       {message.text && <div className={`message ${message.type}`}>{message.text}</div>}
       <div className="dashboard-grid">
         <div className="card">
